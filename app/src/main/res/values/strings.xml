@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Shopping</string>
+    <string name="coffee">Coffee</string>
+    <string name="tea">Tea</string>
+    <string name="iPhone">IPhone</string>
+    <string name="mac">Mac</string>
 </resources>
