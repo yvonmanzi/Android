@@ -3,11 +3,16 @@ package com.example.yvonmanzi.shopping;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 1;
+    private LinkedList<String> list = new LinkedList<>();
 
 
     @Override
@@ -24,10 +29,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
-         int itemId = data.getIntExtra(CommonItemsActivity.ITEM_EXTRA, R.string.coffee);
-            TextView view = findViewById(R.id.first_item);
-            view.setText(itemId);
-            view.setVisibility(view.VISIBLE);
+            String itemName = data.getStringExtra(CommonItemsActivity.ITEM_EXTRA);
+
+            //get a handle to the rv
+            RecyclerView mRecyclerView = findViewById(R.id.recycler_view_main);
+            list.add(itemName);
+            //hook rv to the adapter
+            mRecyclerView.setAdapter(new ItemListAdapter(this, list));
+            //provide default layout
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
         }
 
     }
