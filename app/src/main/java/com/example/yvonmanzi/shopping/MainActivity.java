@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
          int itemId = data.getIntExtra(CommonItemsActivity.ITEM_EXTRA, R.string.coffee);
-            TextView view = findViewById(R.id.second_item);
+            TextView view = findViewById(R.id.first_item);
             view.setText(itemId);
+            view.setVisibility(view.VISIBLE);
         }
 
     }

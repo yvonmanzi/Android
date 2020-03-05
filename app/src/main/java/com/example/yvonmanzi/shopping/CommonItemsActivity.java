@@ -20,12 +20,15 @@ public class CommonItemsActivity extends AppCompatActivity {
         switch (viewId) {
             case R.id.button_coffee:
                 itemId = R.string.coffee;
+                break;
             case R.id.button_tea:
                 itemId = R.string.tea;
+                break;
             case R.id.button_mac:
                 itemId = R.string.mac;
+                break;
             default:
-                itemId=R.id.button_coffee;
+                itemId=R.string.coffee;
         }
         Intent i = new Intent();
         i.putExtra(ITEM_EXTRA, itemId);
